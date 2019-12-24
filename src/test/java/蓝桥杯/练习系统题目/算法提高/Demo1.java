@@ -28,38 +28,69 @@ N是一个奇数，设X = (N+1)/2。Ciel每次都可以做这样的一次操作�
 1 <= N <= 33，且N为奇数。
 * */
 public class Demo1 {
+
+    public static int N, X;
+    public static int[][] Ciel;
+    public static int ans = Integer.MIN_VALUE;  //最终结果,初始化为最小
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        int[][] arr = new int[N][N];
-        for (int i=0;i<N;i++){
-            for (int j=0;j<N;j++){
-                arr[i][j] = scan.nextInt();
+        Demo1 test = new Demo1();
+        Scanner in = new Scanner(System.in);
+        N = in.nextInt();
+        X = (N + 1) / 2;
+        Ciel = new int[N][N];
+        for(int i = 0;i < N;i++)
+            for(int j = 0;j < N;j++)
+                Ciel[i][j] = in.nextInt();
+        test.getResult();
+        System.out.println(ans);
+
+    }
+
+
+    public void getResult() {
+        for(int t = 0;t < (1<<X-1);t++) {
+            for(int j = 0;j < X - 1;j++) {
+                if((t&(1<<j)) != 0) {
+                    for(int i = 0;i < X;i++) {
+                        Ciel[i][j] *= -1;
+                        Ciel[i][j + X] *= -1;
+                    }
+                }
             }
-        }
-
-        for (int i=0;i<N;i++){
-            for (int j=0;j<N;j++){
-                if(arr[i][j]<0){
-
-                    if((i!=0||j!=N-1)&&(arr[i][j]+arr[i][j-1]+arr[i+1][j]+arr[i+1][j-1])<0){
-                        arr[i][j]*=-1;
-                        arr[i][j-1]*=-1;
-                        arr[i+1][j]*=-1;
-                        arr[i+1][j-1]*=-1;
+            getTempMax();
+            for(int j = 0;j < X - 1;j++) {
+                if((t&(1<<j)) != 0) {
+                    for(int i = 0;i < X;i++) {
+                        Ciel[i][j] *= -1;
+                        Ciel[i][j + X] *= -1;
                     }
-
-                    if(j==0&&(arr[i][j]+arr[i][j+1]+arr[i+1][j]+arr[i+1][j+1])<0){
-                        arr[i][j+1]*=-1;
-                        arr[i+1][j]*=-1;
-                        arr[i+1][j+1]*=-1;
-                        arr[i+1][j+1]*=-1;
-                    }
-
-
                 }
             }
         }
     }
+
+
+    public void getTempMax() {
+        int max = 0;
+        int tempA ,tempB;
+        for(int j = 0;j < N;j++)
+            max += Ciel[X - 1][j];
+        for(int i = 0;i < X - 1;i++) {
+            tempA = Integer.MIN_VALUE;
+            tempB = Ciel[i][X - 1] + Ciel[i + X][X - 1];
+            for(int j = 0;j < X - 1;j++)
+                tempB += Math.abs(Ciel[i][j]+Ciel[i][j+X]+Ciel[i+X][j]+Ciel[i+X][j+X]);
+            tempA = Math.max(tempA, tempB);
+            tempB = -1 * (Ciel[i][X - 1] + Ciel[i + X][X - 1]);
+            for(int j = 0;j < X - 1;j++)
+                tempB += Math.abs((-1)*Ciel[i][j]+Ciel[i][j+X]+(-1)*Ciel[i+X][j]+Ciel[i+X][j+X]);
+            tempA = Math.max(tempA, tempB);
+            max += tempA;
+        }
+        ans = Math.max(max, ans);
+    }
+
+
 
 }
