@@ -38,6 +38,7 @@ public class Test {
         }
 
         System.out.println("........第二种遍历方式：ListIterator迭代遍历......");
+
         ListIterator<String> it = list.listIterator();
         while (it.hasNext()) {
             Object obj = it.next();

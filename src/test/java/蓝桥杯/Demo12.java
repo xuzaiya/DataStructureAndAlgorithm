@@ -36,6 +36,8 @@ public class Demo12 {
 
     }
 
+
+
     //正负号变换
     static String reve(String s){
         s = s.replace('-','#');

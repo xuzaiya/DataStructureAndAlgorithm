@@ -42,23 +42,27 @@ public class SortTest {
         merge(a,left,right);
     }
 
-    private static void mergeSort2(int[] a){
+
+    private static void mergeSort2(int[]arr){
         //找出中间值
-        int mind = a.length/2;
-        //申请空间存储中间索引以左的值
-        int[] left = setValue(a,0,mind);
-        if (left.length>1){
+        int mid = arr.length/2;
+        //申请空间存储索引以左的值
+        int[] left = setValue(arr,0,mid);
+        if(left.length>1){
             mergeSort2(left);
         }
-        //申请空间存储中间索引以右的值
-        int[] right = setValue(a,mind,a.length);
-        if (right.length>1){
+        //申请空间存储索引以右的值
+        int[] right = setValue(arr,mid,arr.length);
+        if(right.length>1){
             mergeSort2(right);
         }
 
         //将左右值合并
-        merge(a,left,right);
+        merge(arr,left,right);
+
     }
+
+
 
     private static void merge(int[] a , int[] left, int[] right) {
         int i=0,j=0,k=0;
@@ -76,26 +80,34 @@ public class SortTest {
             a[k++] = right[j];
         }
     }
-
-    private static void merge2(int[]a,int[]left,int[]right){
+    //合并两个数组
+    private static void merge2(int[]arr,int[]left,int[]right){
         int i=0,j=0,k=0;
-        for (;i<left.length&&j<right.length;){
-            if (left[i]<right[j]){
-                a[k++] = left[i++];
+        for(;i<left.length&&j<right.length;){
+            if(left[i]<right[j]){
+                arr[k++] = left[i++];
             }else{
-                a[k++] = right[j++];
+                arr[k++] = right[j++];
             }
         }
-
         for (;i<left.length;i++){
-            a[k++] = left[i];
-        }
-        for (;j<right.length;j++){
-            a[k++]=right[j];
+            arr[k++] = left[i];
         }
 
+        for(;j<right.length;j++){
+            arr[k++] = right[j];
+        }
     }
 
+
+    private static int[] setValue2(int[]arr,int start,int length){
+        int[] x = new int[length-start];
+        for (int i=0;i<x.length;i++){
+            x[i] = arr[start++];
+        }
+        return x;
+
+    }
     private static int[] setValue(int[] a, int start,int length) {
         int[] x = new int[length-start];
         for (int i = 0; i < x.length; i++) {
@@ -104,14 +116,7 @@ public class SortTest {
         return x;
     }
 
-    //
-    private static  int[] setValue2(int[]a,int start,int length){
-        int[] x = new int[length-start];
-        for (int i=0;i<x.length;i++){
-            x[i] = a[start++];
-        }
-        return x;
-    }
+
     private static void show(int[] a) {
         System.out.println(Arrays.toString(a));
     }

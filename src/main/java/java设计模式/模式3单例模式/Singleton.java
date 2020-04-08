@@ -1,5 +1,7 @@
 package java设计模式.模式3单例模式;
-
+/*
+* 懒汉式
+* */
 public class Singleton {
     private static Singleton instance = null;
 
@@ -15,10 +17,15 @@ public class Singleton {
         return instance;
     }
 
-    /*
-    如果该兑现用于序列化，可以保证在序列化前后保持一致
-    * */
-    public Object readResolve(){
+    //改进版 实现线程安全的懒汉式（双重检查加锁）
+    public static Singleton getInstance2(){
+        if (instance == null){
+            synchronized (Singleton.class){
+                if (instance == null){
+                    instance = new Singleton();
+                }
+            }
+        }
         return instance;
     }
 

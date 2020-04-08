@@ -23,7 +23,7 @@ public class Demo11 {
     //k:目前考虑的位置
     //n:目标名额
     //s:已经决定的代表团成员
-     static void func(int[]a,int k,int n,String s){
+     public static void func(int[]a,int k,int n,String s){
         if(k == a.length){
             if(n==0) System.out.println(s);
             return ;
@@ -32,6 +32,31 @@ public class Demo11 {
         String s2 = s;
         for (int i=0;i<=a[k];i++){
             func(a,k+1,n-i,s2);
+            s2+=(char)(k+'A');
+        }
+    }
+
+
+    public static void func2(int[]arr ,int k,int n,String s){
+        if(k == arr.length){
+            if (n == 0) System.out.println(s);
+            return ;
+        }
+        String s2 = s;
+        for (int i=0;i<arr[k];i++){
+            func2(arr,k+1,n-i,s2);
+            s2+=(char)(k+'A');
+        }
+    }
+
+    public static void func3(int[]arr,int k,int n,String s){
+        if (k == arr.length){
+            if (n == 0) System.out.println(s);
+            return ;
+        }
+        String s2= s;
+        for (int i=0;i<arr[k];i++){
+            func2(arr,k+1,n-i,s2);
             s2+=(char)(k+'A');
         }
     }

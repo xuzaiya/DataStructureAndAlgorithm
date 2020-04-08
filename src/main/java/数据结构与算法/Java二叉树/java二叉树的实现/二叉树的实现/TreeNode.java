@@ -57,7 +57,7 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return "TreeNode{" +
+        return "Node{" +
                 "leftTreeNode=" + leftTreeNode +
                 ", rightTreeNode=" + rightTreeNode +
                 ", data=" + data +

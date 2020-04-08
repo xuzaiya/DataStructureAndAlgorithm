@@ -21,17 +21,17 @@ public class SortTest2 {
    //堆排序
     public static void heapSort2(int[]arr){
         //构造大根堆
-        heapInsert2(arr);
+        heapInsert(arr);
         int size = arr.length;
         while(size>1){
             swap(arr,0,size-1);
             size--;
-            heapify2(arr,0,size);
+            heapify(arr,0,size);
         }
     }
 
     //构造大根堆（通过插入新的数据上升）
-    public static void heapInsert2(int[]arr){
+    public static void heapInsert(int[]arr){
         for(int i=0;i<arr.length;i++){
             //当前插入的索引
             int currentIndex = i;
@@ -44,16 +44,13 @@ public class SortTest2 {
         }
     }
 
-    //构造大根堆（通过插入新的数据上升）
-    public static void heapInsert(int[]arr){
+    //构造大根堆 （通过插入新的数据上升）
+    public static void heapInsert2(int[]arr){
         for (int i=0;i<arr.length;i++){
-            //当前插入的索引
-            int currentIndex = i;
-            int fatherIndex =(currentIndex-1)/2;
-            //如果当前插入的值大于其父节点的值，则交换，并且将索引指向父节点
-            //然后继续和上面的父节点比较，知道不大于父节点，则退出循环
+            //当前插入索引
+            int currentIndex = 1;
+            int fatherIndex = (currentIndex-1)/2;
             while(arr[currentIndex]>arr[fatherIndex]){
-                //交换当前节点与父节点的值
                 swap(arr,currentIndex,fatherIndex);
                 currentIndex = fatherIndex;
                 fatherIndex = (currentIndex-1)/2;
@@ -63,34 +60,9 @@ public class SortTest2 {
 
 
 
-    //将剩余元素构造成大根堆（通过顶端的数下降）
-    public static void heapify2(int[]arr,int index,int size){
-        int left = 2*index+1;
-        int right  = 2*index+2;
-        while(left<size){
-            int largeIndex ;
-            if (arr[left]<arr[right]&&right<size){
-                largeIndex = right;
-            }else{
-                largeIndex  =left;
-            }
-
-            if (arr[index]>arr[largeIndex]){
-                largeIndex = index;
-            }
-            if (index == largeIndex){
-                break;
-            }
-
-            swap(arr,largeIndex,index);
-            index = largeIndex;
-            //重新计算交换之后的孩子的索引
-            left = 2*index+1;
-            right = 2*index+2;
 
 
-        }
-    }
+
 
 
     //将剩余的数构造成大根堆（通过顶端的数下降）

@@ -3,6 +3,7 @@ package 数据结构与算法.java遍历算法.Java遍历Map对象的四种方�
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 public class Test {
     public static void main(String[] args) {
@@ -14,10 +15,22 @@ public class Test {
         map.put(6,3);
 
 
-        // 方法一这是最常见的并且在大多数情况下也是最可取的遍历方式。在键值都需要时使用
+        Set<Map.Entry<Integer, Integer>> entries1 = map.entrySet();
+        Iterator<Map.Entry<Integer, Integer>> iterator = entries1.iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, Integer> next = iterator.next();
+            Integer key = next.getKey();
+            Integer value = next.getValue();
+            System.out.println("kye:"+key+"  "+"value:"+value);
+        }
+
+
+
+        /*// 方法一这是最常见的并且在大多数情况下也是最可取的遍历方式。在键值都需要时使用
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
         }
+
 
 
         // 在for-each循环中遍历keys或values。
@@ -54,7 +67,7 @@ public class Test {
         for (Integer key : map.keySet()) {
             Integer value = map.get(key);
             System.out.println("Key = " + key + ", Value = " + value);
-        }
+        }*/
 
 
 

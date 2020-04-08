@@ -29,6 +29,7 @@ public class SortTest {
         heapSort(a);
         show(a);
     }
+
     private static void heapSort(int[] a) {
         //建立最大堆
         int size = a.length;
@@ -43,6 +44,26 @@ public class SortTest {
             createBigHeap(a,0,size-2-j);
         }
     }
+
+    private static void heapSort2(int[]arr){
+        //建立大根堆
+        int size = arr.length;
+        for (int i=size/2-1;i>=0;i--){
+            createBigHeap(arr,i,size-1);
+        }
+
+        //排序
+        for(int j=0;j<size-1;j++){
+            int temp = arr[0];
+            arr[0] = arr[size-1-j];
+            arr[size-1-j] = temp;
+            createBigHeap(arr,0,size-2-j);
+        }
+
+    }
+
+
+
     private static void createBigHeap(int[] a, int start, int end) {
         int tmp = a[start];
         int j = 2 *start+1;
@@ -60,6 +81,14 @@ public class SortTest {
         }
         a[start] = tmp;
     }
+
+
+
+
+
+
+
+
     private static void show(int[] a) {
         System.out.println(Arrays.toString(a));
     }

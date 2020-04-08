@@ -19,7 +19,7 @@ package 蓝桥杯;
 * */
 public class Demo3 {
     public static void main(String[] args) {
-        System.out.println(f(5,4));
+        System.out.println(f(4,5));
     }
 
 

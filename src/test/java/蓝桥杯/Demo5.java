@@ -37,7 +37,7 @@ public class Demo5 {
         }
         f(a,k-1,"+"+a[k]+so,total-a[k]);
         f(a,k-1,"-"+a[k]+so,total+a[k]);
-        int old = a[k-1];
+        int  old = a[k-1];
         a[k-1] = Integer.parseInt(""+a[k-1]+a[k]);
         f(a,k-1,so,total);
         a[k-1] = old;

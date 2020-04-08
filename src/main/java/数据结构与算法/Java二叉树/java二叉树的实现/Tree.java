@@ -1,7 +1,5 @@
 package 数据结构与算法.Java二叉树.java二叉树的实现;
 
-import 数据结构与算法.Java二叉树.Java中二叉树数据结构的实现示例.BinaryTree;
-
 public class Tree {
     public Node root; //根节点
     public static int count;

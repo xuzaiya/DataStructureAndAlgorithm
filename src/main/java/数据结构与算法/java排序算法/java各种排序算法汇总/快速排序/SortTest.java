@@ -20,7 +20,7 @@ public class SortTest {
     public static void main(String[] args) {
         int[] a = {345,7,32,5,4,3,12,23,110};
         show(a);
-        quickSort(a,0,a.length-1);
+        quickSort2(a,0,a.length-1);
         show(a);
     }
     private static void quickSort(int[] a, int start, int end) {
@@ -56,6 +56,65 @@ public class SortTest {
     }
 
 
+    public static void quickSort2(int[]arr,int left ,int right){
+        int i,j,t,temp;
+        if(left>right){
+            return ;
+        }
+        temp = arr[left];
+        i = left;
+        j = right;
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){
+                j--;
+            }
+            while(arr[i]<=temp&&i<j){
+                i++;
+            }
+            if(i<j){
+                t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+            }
+        }
+        arr[left] = arr[i];
+        arr[i] = temp;
+        quickSort2(arr,left,i-1);
+        quickSort2(arr,i+1,right);
+    }
+
+    public static void quickSort3(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if(left>right)return;
+        i=left;j=right;temp=arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){t=arr[i];arr[i] = arr[j];arr[j] = t;}
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort3(arr,left,i-1);
+        quickSort3(arr,i+1,right);
+    }
+
+    public static void quickSort4(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if(left>right)return ;
+        i=left;
+        j= right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i] = arr[j];arr[j] = t;
+            }
+        }
+        arr[left] = arr[i]; arr[i] = temp;
+        quickSort4(arr,left,i-1);
+        quickSort4(arr,i+1,right);
+
+    }
 
 
 
