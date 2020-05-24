@@ -15,7 +15,7 @@ public class BST {
             // tree = insert(tree, data[i]);
             // tree = insert2(tree, data[i]);
             // tree = insert3(tree, data[i]);
-            insert4(tree4, data[i]);
+            insert3(tree4, data[i]);
         }
         // 遍历一下，看看是否插对了，关于树的遍历，请查看本博客关于二叉树的遍历
         //Tree.pre(tree);
@@ -86,6 +86,8 @@ public class BST {
     }
 
 
+
+
     // 递归插入 精简版
     public static Node insert2(Node tree, int des) {
         if (tree == null)
@@ -125,29 +127,7 @@ public class BST {
 
 
 
-    public static void insert4(Node tree, int des){
-        if(tree.element == 0){
-            tree.element = des;
-            return ;
-        }
-        Node temp = tree;
-        while(true){
-            if(des<temp.element){
-                if(temp.left == null){
-                    temp.left = new Node(des);
-                    return;
-                }
-                temp = temp.left;
-            }else if(des > temp.element){
-                if(temp.right == null){
-                    temp.right = new Node(des);
-                    return ;
-                }
-                temp = temp.right;
-            }
-        }
 
-    }
 
 
     public static Node findMin(Node tree) {

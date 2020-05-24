@@ -182,13 +182,14 @@ public class SingleLinkedList {
             return head;
         }
         Node slow = head,fast= head;
-        if (fast.next!=null && fast.next.next!=null){
+        while (fast.next!=null && fast.next.next!=null){
             slow = slow.next;
             fast = fast.next.next;
 
         }
         return slow;
     }
+
 
     //找出链表的中间节点
     public Node findMiddelNode2(Node node){
@@ -213,7 +214,7 @@ public class SingleLinkedList {
         }
 
         Node slow=head,fast = head;
-        if (fast.next!=null&&fast.next.next !=null){
+        while (fast.next!=null&&fast.next.next !=null){
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast){
@@ -223,6 +224,8 @@ public class SingleLinkedList {
         return false;
     }
 
+
+
     //用快慢指针判断链表是否有环
     public boolean isCircleLinkedListNode2(Node head){
         if (head == null){
@@ -230,7 +233,7 @@ public class SingleLinkedList {
         }
 
         Node slow = head,fast = head;
-        if (fast.next!=null&&fast.next.next!=null){
+        while (fast.next!=null&&fast.next.next!=null){
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast){
@@ -257,6 +260,7 @@ public class SingleLinkedList {
         }
         return head;
     }
+
 
 
     //将某个元素插入到已经排序的链表中
@@ -304,6 +308,7 @@ public class SingleLinkedList {
         }
         return head;
     }
+
 
     //合并两个有序链表
     public Node mergeTwoList(Node la,Node lb){
@@ -356,29 +361,7 @@ public class SingleLinkedList {
         }
         return true;
     }
-    //判断一个链表是不是回文链表
-    public boolean isPalindrome2(Node node){
-        Node fast = node;
-        Node slow = node;
-        Stack<Integer> stack = new Stack<>();
-        while(fast!=null && fast.next!=null){
-            stack.push(slow.data);
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        if (fast!=null){
-            slow = slow.next;
-        }
-        while(slow!=null){
-            if (stack.pop()!=slow.data){
-                return false;
-            }else{
-                slow = slow.next;
-            }
-        }
-        return true;
 
-    }
 
 
     //奇偶链表

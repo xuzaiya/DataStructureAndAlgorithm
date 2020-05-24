@@ -1,13 +1,12 @@
 package java多线程.案例七线程范围内共享变量;
 
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.Random;
 
 public class ThreadLocalTest {
 
     private static ThreadLocal<Integer> x = new ThreadLocal<>();
-    private  static ThreadLocal<MyThreadScopeData> myThreadScopeDataThreadLocal = new ThreadLocal<>();
+    private  static ThreadLocal<MyThreadScopeData> myThreadScopeData = new ThreadLocal<>();
     public static void main(String[] args) {
         for (int i=0;i<2;i++){
             new Thread(new Runnable() {
@@ -35,7 +34,7 @@ public class ThreadLocalTest {
     static class A{
         public void get(){
             int data = x.get();
-            MyThreadScopeData mydata = myThreadScopeDataThreadLocal.get();
+            MyThreadScopeData mydata = myThreadScopeData.get();
             System.out.println("A from "+Thread.currentThread().getName()+"get data: "+data);
             System.out.println("A from "+Thread.currentThread().getName()+"get data: "+mydata.getName()+mydata.getAge());
 
@@ -45,7 +44,7 @@ public class ThreadLocalTest {
     static class B{
         public void get(){
             int data = x.get();
-            MyThreadScopeData mydata = myThreadScopeDataThreadLocal.get();
+            MyThreadScopeData mydata = myThreadScopeData.get();
             System.out.println("B from "+Thread.currentThread().getName()+"get data: "+data);
             System.out.println("B from "+Thread.currentThread().getName()+"get data: "+mydata.getName()+mydata.getAge());
         }

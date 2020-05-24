@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueTest {
     public static void main(String[] args) {
         final BlockingQueue queue = new ArrayBlockingQueue(3);//允许放三个数据
-        for (int i=0;i<2;i++){
+        for (int i=0;i<12;i++){
             new Thread(){
                 public void run (){
                     while (true){

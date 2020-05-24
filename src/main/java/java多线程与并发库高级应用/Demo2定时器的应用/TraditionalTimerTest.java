@@ -16,9 +16,9 @@ public class TraditionalTimerTest {
         },2000,3000); //第一次定时任务是2秒以后，然后每个3秒执行一次任务
 
 
-       /* while(true){
+        while(true){
             System.out.println(new Date().getSeconds());
             Thread.sleep(1000);
-        }*/
+        }
     }
 }

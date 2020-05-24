@@ -8,7 +8,7 @@ public class TraditionalThread {
 
 
     public void init(){
-        final Outputer outputer = new Outputer();
+         Outputer outputer = new Outputer();
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -18,7 +18,7 @@ public class TraditionalThread {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    outputer.output("tingting");
+                    outputer.output("xuzaiya");
                 }
             }
         }).start();

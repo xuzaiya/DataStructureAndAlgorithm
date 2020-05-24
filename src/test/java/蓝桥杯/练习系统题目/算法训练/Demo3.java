@@ -31,6 +31,21 @@ public class Demo3 {
             }
         }
         System.out.println(count);
+        System.out.println(getOne(n));
+    }
+    public static int getOne(int n){
+        int count=0;
+        StringBuffer sb = new StringBuffer();
+        for (int i=1;i<=n;i++){
+            sb.append(""+i);
+        }
+        char[] chars = sb.toString().toCharArray();
+        for (int i=0;i<chars.length;i++){
+            if('1' == chars[i]){
+                count++;
+            }
+        }
+        return count;
     }
 
 

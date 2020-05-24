@@ -14,8 +14,8 @@ public class ThreadScopeShareData {
                 @Override
                 public void run() {
                     int data = new Random().nextInt();
-                    System.out.println(Thread.currentThread().getName()+" havs put data :"+data);
                     threadData.put(Thread.currentThread(),data);
+                    System.out.println(Thread.currentThread().getName()+" havs put data :"+data);
                     new A().get();
                     new B().get();
                 }

@@ -8,6 +8,10 @@ public class DoubleByLinkedList {
         last = null;
     }
 
+
+
+
+
     /*
     插入一个节点，在头结点插入一个节点
 
@@ -17,7 +21,7 @@ public class DoubleByLinkedList {
         if (isEmpty()){
             last = node;
         }else{
-            first.previous = node;
+            first.pre = node;
         }
         node.next = first;
         first = node;
@@ -31,7 +35,7 @@ public class DoubleByLinkedList {
         if (first.next == null){
             last =null;
         }else{
-            first.next.previous = null;
+            first.next.pre = null;
         }
         first = temp.next;
         return temp;
@@ -44,9 +48,9 @@ public class DoubleByLinkedList {
         if (first.next == null){
             first = null;
         }else{
-            last.previous.next = null;
+            last.pre.next = null;
         }
-        last = last.previous;
+        last = last.pre;
         return last;
     }
 
@@ -64,7 +68,7 @@ public class DoubleByLinkedList {
         if (current == first){
             first = first.next;
         }else{
-            current.previous = current.next;
+            current.pre = current.next;
         }
         return  current;
     }

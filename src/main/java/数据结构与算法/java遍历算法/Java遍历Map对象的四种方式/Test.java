@@ -26,6 +26,8 @@ public class Test {
 
 
 
+
+
         /*// 方法一这是最常见的并且在大多数情况下也是最可取的遍历方式。在键值都需要时使用
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());

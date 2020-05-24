@@ -13,8 +13,8 @@ public class ThreadShareData {
                 @Override
                 public void run() {
                     data = new Random().nextInt();
-                    System.out.println(Thread.currentThread().getName()+" has put data :"+data);
                     threadData.put(Thread.currentThread(),data);
+                    System.out.println(Thread.currentThread().getName()+" has put data :"+data);
                     new A().get();
                     new B().get();
                     new C().get();

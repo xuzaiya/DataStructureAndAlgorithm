@@ -1,14 +1,26 @@
 package 蓝桥杯;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.Vector;
 //排列组合ABCDE
 public class Demo6 {
     public static void main(String[] args) {
-        List list = f("ABCDE");
+        int count =0;
+        List list = f("LANQIAO");
         for (int i=0;i<list.size();i++){
             System.out.println(list.get(i));
         }
+
+        Set<String> set = new HashSet<>();
+        for(int i=0;i<list.size();i++){
+            if(!set.contains(list.get(i))){
+                count++;
+            }
+        }
+        System.out.println(count);
+        //System.out.println(12.5*1024*1024);
 
 
 

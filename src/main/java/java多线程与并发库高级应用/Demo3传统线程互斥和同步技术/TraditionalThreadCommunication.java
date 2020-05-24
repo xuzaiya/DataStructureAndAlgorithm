@@ -7,6 +7,7 @@ package java多线程与并发库高级应用.Demo3传统线程互斥和同步�
 public class TraditionalThreadCommunication {
     public static void main(String[] args) {
         Business business = new Business();
+
         new Thread(new Runnable() {
             @Override
             public void run() {

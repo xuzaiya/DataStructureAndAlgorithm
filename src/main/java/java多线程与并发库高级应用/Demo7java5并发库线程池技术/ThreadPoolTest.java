@@ -10,7 +10,7 @@ public class ThreadPoolTest {
         //ExecutorService pool = Executors.newCachedThreadPool();
         ExecutorService pool = Executors.newSingleThreadExecutor();
         for (int i=1;i<=10;i++){
-            final int task = i;
+             int task = i;
             pool.execute(new Runnable() {
                 @Override
                 public void run() {

@@ -19,16 +19,7 @@ import java.util.Scanner;
 public class Demo6 {
 
     public static void main(String[] args) {
-       /* Scanner scan = new Scanner(System.in);
-        long str = scan.nextLong();
-        long fac = factorial(str);
-        while(fac>0){
-            if(fac%10!=0){
-                System.out.println(fac%10);
-                break;
-            }
-            fac/=10;
-        }*/
+
 
        Scanner scan = new Scanner(System.in);
        int n = scan.nextInt();
@@ -54,14 +45,7 @@ public class Demo6 {
 
     }
 
-    /*public static long factorial(long str){
 
-        if(str == 1){
-            return 1;
-        }
-        return str*factorial(str-1);
-
-    }*/
 }
 
 

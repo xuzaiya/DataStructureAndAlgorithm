@@ -17,6 +17,28 @@ public class Tree {
 
     }
 
+    //创建二叉树
+    public static Node createTree(int[]data,int i){
+        if(i>=data.length || data[i] == -1){
+            return null;
+        }
+        Node temp = new Node(data[i]);
+        temp.left = createTree(data,i*2+1);
+        temp.right = createTree(data,i*2+2);
+        return temp;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
     //二叉树的前序遍历递归
     public static void pre(Node temp){
         if(temp == null)return ;
@@ -42,15 +64,30 @@ public class Tree {
     }
 
     //pre1前序遍历非递归
-    public static void pre1(Node temp){
+    public static void pre4(Node temp){
         Stack<Node> stack = new Stack<>();
-        while(temp!=null||!stack.isEmpty()){
+        while(temp!=null || !stack.isEmpty()){
             while(temp!=null){
                 stack.push(temp);
                 System.out.print(temp.element+" ");
                 temp = temp.left;
             }
             if(!stack.isEmpty()){
+                temp = stack.pop().right;
+            }
+        }
+    }
+
+   //pre1前序遍历非递归
+    public static void pre5(Node temp){
+        Stack<Node> stack = new Stack<>();
+        while(temp!=null || !stack.isEmpty()){
+            while(temp!=null){
+                stack.push(temp);
+                System.out.print(temp.element+" ");
+                temp = temp.left;
+            }
+            if (!stack.isEmpty()){
                 temp = stack.pop().right;
             }
         }
@@ -109,13 +146,31 @@ public class Tree {
 
     }
 
+    //层序遍历
+    public static void ceng2(Node temp){
+        if (temp == null)return ;
+        Queue<Node>queue = new ArrayDeque<>();
+        queue.offer(temp);
+        while(!queue.isEmpty()){
+            temp = queue.poll();
+            System.out.print(temp.element+" ");
+            if (temp.left!=null){
+                queue.offer(temp.left);
+            }
+            if (temp.right!=null){
+                queue.offer(temp.right);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         int[]arr = {1,2,3,4,5,6,7,-1,-1,10,-1,-1,13};
         Node tree = creatTree(arr, 0);
+
         pre(tree);
         System.out.println();
-        pre1(tree);
         System.out.println();
+        System.out.println("中序遍历");
         mid(tree);
         System.out.println();
         mid1(tree);

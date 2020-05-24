@@ -116,6 +116,95 @@ public class SortTest {
 
     }
 
+    public static void quickSort5(int[]arr,int left,int right){
+        int i , j,temp,t;
+        if(left>right)return;
+        i = left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t = arr[i];arr[i] = arr[j];arr[j] = t;
+            }
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort5(arr,left,i-1);
+        quickSort5(arr,i+1,right);
+    }
+
+
+
+
+    //快速排序
+    public static void quickSort7(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if(left>right)return ;
+        i = left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t = arr[i];arr[i] = arr[j];arr[j] = t;
+            }
+        }
+        arr[left] =arr[i];arr[i] = temp;
+        quickSort7(arr,left,i-1);
+        quickSort7(arr,i+1,right);
+    }
+
+    //快速排序
+    public static void quicksort8(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if (left>right)return;
+        i = left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i]=arr[j];arr[j]=t;
+            }
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort7(arr,left,i-1);
+        quickSort7(arr,i+1,right);
+    }
+
+    //快速排序
+    public static void quickSort9(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if (left>right)return;
+        i = left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i]=arr[j];arr[j] = t;
+            }
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort7(arr,left,i-1);
+        quickSort7(arr,i+1,right);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

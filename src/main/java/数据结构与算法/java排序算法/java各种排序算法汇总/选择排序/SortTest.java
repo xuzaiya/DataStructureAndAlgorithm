@@ -38,6 +38,56 @@ public class SortTest {
         }
     }
 
+    private static void selectSort2(int[]arr){
+        for (int i =0;i<arr.length-1;i++){
+            int min = i;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[j]>arr[min]){
+                    min = j;
+                }
+            }
+            if(min!=i){
+                int temp =arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
+            }
+        }
+    }
+
+    private static void selectSort3(int[]arr){
+        for (int i = 0 ;i<arr.length-1;i++){
+            int min = i;
+            for(int j = i+1;j<arr.length;i++){
+                if(arr[j]>arr[min]){
+                    min = j;
+                }
+            }
+            if (min!=i){
+                int temp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
+            }
+        }
+    }
+
+
+    private static void selectSort4(int[]arr){
+        for (int i =0;i<arr.length-1;i++){
+            int min = i;
+            for(int j=i+1;j<arr.length;j++){
+                if(arr[j]>arr[min]){
+                    min = j;
+                }
+            }
+            if(min!=i){
+                int temp =arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
+            }
+        }
+    }
+
+
 
 
 

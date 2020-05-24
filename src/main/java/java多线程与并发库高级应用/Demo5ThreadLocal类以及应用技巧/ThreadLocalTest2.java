@@ -53,6 +53,9 @@ public class ThreadLocalTest2 {
 }
 
 class MyThreadScopeData{
+    private static ThreadLocal<MyThreadScopeData> map = new ThreadLocal<>();
+    private String name;
+    private int age;
     private MyThreadScopeData(){ }
     private static MyThreadScopeData instance = new MyThreadScopeData();
     public static  MyThreadScopeData getInstance(){
@@ -64,9 +67,7 @@ class MyThreadScopeData{
         return instance;
     }
 
-    private static ThreadLocal<MyThreadScopeData> map = new ThreadLocal<>();
-    private String name;
-    private int age;
+
 
     public String getName() {
         return name;

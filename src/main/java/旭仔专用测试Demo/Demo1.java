@@ -2,10 +2,13 @@ package 旭仔专用测试Demo;
 
 public class Demo1 {
     public static void main(String[] args) {
-        test1();
+        //test1();
         //test2();
         //test3();
         //test4();
+        //test5();
+        int[]array = new int[]{1,3,2,5,7,9,6};
+        test6(array);
     }
 
     public static void test1(){
@@ -50,6 +53,30 @@ public class Demo1 {
     }
 
     //把一个字符串里面的单词首字母变成大写
+    public static void test5(){
+        String str = "nihao wo yang xu";
+        String s = str.replaceAll("[ ]", "%20");
+        System.out.println(s);
+    }
+
+    public static void test6(int[]array){
+        if(array == null || array.length == 0)return ;
+        int m = 0;
+        for(int i=0;i<array.length;i++){
+            if((Math.abs(array[i])%2)!=0){
+                int temp = array[i];
+                int j = i;
+                while(j>m){
+                    array[j] = array[j-1];
+                    j--;
+                }
+                m=j+1;
+                array[j] = temp;
+            }
+        }
+    }
+
+
 
 
 }

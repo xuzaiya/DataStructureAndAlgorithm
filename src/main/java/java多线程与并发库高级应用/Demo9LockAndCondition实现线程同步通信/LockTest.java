@@ -36,7 +36,7 @@ public class LockTest {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    outputer.output("tingting");
+                    outputer.output("nimad");
                 }
             }
         }).start();

@@ -29,42 +29,115 @@ public class SortTest {
         heapSort(a);
         show(a);
     }
+    //建立最大堆
+    private static void headpSort(int[]arr){
+        int size = arr.length;
+        for (int i=size/2-1;i>=0;i--){
+            adjustBigHeap(arr,i,size-1);
+        }
 
+        //排序
+        for (int j = 0;j<size-1;j++){
+            int temp = arr[0];
+            arr[0] = arr[size-1-j];
+            arr[size-1-j] = temp;
+            adjustBigHeap(arr,0,size-2-j);
+        }
+    }
+
+    
     private static void heapSort(int[] a) {
         //建立最大堆
         int size = a.length;
         for(int i=size/2-1;i>=0;i--){
-            createBigHeap(a,i,size-1);
+            adjustBigHeap(a,i,size-1);
         }
         //排序
         for(int j=0;j<size-1;j++){
             int tmp=a[0];
             a[0]=a[size-1-j];
             a[size-1-j]=tmp;
-            createBigHeap(a,0,size-2-j);
+            adjustBigHeap(a,0,size-2-j);
         }
     }
+
 
     private static void heapSort2(int[]arr){
-        //建立大根堆
-        int size = arr.length;
-        for (int i=size/2-1;i>=0;i--){
-            createBigHeap(arr,i,size-1);
+        //1.建立大顶堆
+        for(int i =arr.length/2-1;i>=0;i--){
+            adjustBigHeap(arr,i,arr.length);
         }
 
-        //排序
-        for(int j=0;j<size-1;j++){
-            int temp = arr[0];
-            arr[0] = arr[size-1-j];
-            arr[size-1-j] = temp;
-            createBigHeap(arr,0,size-2-j);
+        //2.调整堆结构+交换堆顶元素和末尾元素
+        for(int j = arr.length-1;j>0;j--){
+            swap(arr,0,j); //将堆顶元素与末尾元素进行交换
+            adjustBigHeap(arr,0,j);
         }
 
+
+    }
+
+    private static void heapSort3(int[]arr){
+        //1.建立大顶堆
+        for (int i=arr.length/2-1;i>=0;i--){
+            adjustBigHeap(arr,i,arr.length);
+        }
+
+        //2.调整堆结构+交换堆顶元素和末尾元素
+        for(int j=arr.length-1;j>0;j--){
+            swap(arr,0,j); //将堆顶元素与末尾元素进行交换
+            adjustBigHeap(arr,0,j);
+        }
+    }
+
+    //调整堆顶堆
+    public static void adjuestHeap3(int[]arr,int i,int length){
+        int temp = arr[i];
+        for(int k = i*2+1;k<length;k=k*2+1){
+            if(k+1<length && arr[k]<arr[k+1]){
+                k++;
+            }
+
+            if(arr[k]>temp){
+                //如果子节点大于父节点，将子节点的值赋值给父节点
+                arr[i] = arr[k];
+                i = k;
+            }else{
+                break;
+            }
+        }
+        arr[i] = temp;
+    }
+
+    //调整大顶堆
+    public static void adjustHeap2(int[]arr,int i ,int length){
+        int temp = arr[i]; // 取出当前元素 （非叶子结点）
+        for(int k=i*2+1;k<length;k=k*2+1){
+            //从i节点的左子节点开始，也就是2i+1开始
+            if(k+1<length && arr[k]<arr[k+1]){
+                k++;
+            }
+            if(arr[k]>temp){
+                //如果子节点大于父节点，将子节点的值赋值给父节点 不用进行交换
+                arr[i] = arr[k];
+                i = k;
+            }else{
+                break;
+            }
+        }
+        arr[i] = temp ; //将temp值放到最终的位子
+    }
+    public static void swap(int[]arr,int a,int b){
+        int temp  = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
 
 
 
-    private static void createBigHeap(int[] a, int start, int end) {
+
+    //调整大根堆
+    private static void adjustBigHeap(int[] a, int start, int end) {
         int tmp = a[start];
         int j = 2 *start+1;
         while(j<=end){
@@ -80,6 +153,14 @@ public class SortTest {
             }
         }
         a[start] = tmp;
+    }
+
+    private static void adjustBigHeap2(int[]arr,int start,int end){
+        int temp = arr[start];
+        int j = 2*start+1;
+        while(j<=end){
+            
+        }
     }
 
 
