@@ -85,6 +85,27 @@ public class BST {
         return temp;
     }
 
+    //递归插入
+    public static Node insert4(Node tree ,int element){
+        Node temp = null;
+        if(tree == null){
+            temp = new Node(element);
+            return temp;
+        }
+        temp = tree;
+        if(element>temp.element){
+            temp.right = insert(temp.right,element);
+
+        }
+
+        if(element<temp.element){
+            temp.left = insert(temp.left,element);
+        }
+        return temp;
+    }
+
+
+
 
 
 
@@ -120,6 +141,29 @@ public class BST {
                 temp = temp.right;
             }
         }
+    }
+
+    //非递归插入
+    public static Node insert5(Node tree,int des){
+        if (tree == null)return new Node(des);
+
+        Node temp = tree;
+        while(true){
+            if (des<temp.element){
+                if(temp.left == null){
+                    temp.left = new Node(des);
+                    return tree;
+                }
+                temp = temp.left;
+            }else if(des>temp.element){
+                if(temp.right == null){
+                    temp.right = new Node(des);
+                    return tree;
+                }
+                temp = temp.right;
+            }
+        }
+
     }
 
 

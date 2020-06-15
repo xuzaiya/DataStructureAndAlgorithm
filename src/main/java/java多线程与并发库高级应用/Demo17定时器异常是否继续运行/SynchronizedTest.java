@@ -59,7 +59,11 @@ public class SynchronizedTest {
                     Thread.sleep(50);
                     if(i==6 ){
                         int j = i/0;
+                        return ;
                     }
+
+
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }finally {

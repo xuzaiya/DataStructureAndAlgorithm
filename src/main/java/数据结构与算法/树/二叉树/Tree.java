@@ -29,6 +29,19 @@ public class Tree {
     }
 
 
+    //创建二叉树
+    public static Node createTree2(int[]data,int i){
+        if(i>=data.length||data[i] == -1){
+            return null;
+        }
+        Node temp = new Node(data[i]);
+        temp.left = createTree2(data,i*2+1);
+        temp.right = createTree2(data,i*2+2);
+        return  temp;
+
+    }
+
+
 
 
 

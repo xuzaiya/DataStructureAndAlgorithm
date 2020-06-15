@@ -22,8 +22,22 @@ public class AVLTree {
 
     /*
     * 左左单旋转LL  w变为x的根结点, x变为w的右子树   右旋
+    *
+    *       p                   p
+     *       /                   /
+     *      y                   x
+     *     / \                 / \
+     *    x  ry   ----->      lx  y
+     *   / \                     / \
+     * lx  rx                   rx ry
+    *
+    *
     * */
     private AVLNode<Integer> singleRotateLeft(AVLNode<Integer> x){
+
+        //右旋
+
+
         //把w旋转成为根节点
         AVLNode<Integer> w = x.left;
         //同时w的右子树变为x的左子树
@@ -38,8 +52,23 @@ public class AVLTree {
 
     /*
     * 右右单旋转RR  x变为w的根结点, w变为x的左子树   左旋
+    *
+    *  *     p                       p
+     *    /                       /
+     *   x                       y
+     *  / \                     / \
+     * lx  y      ----->       x  ry
+     *    / \                 / \
+     *   ly ry               lx ly
+    *
+    *
+    *
+    *
     * */
     private AVLNode<Integer> singleRotateRight(AVLNode<Integer> w){
+
+
+
         //把x旋转成为根节点
         AVLNode<Integer> x = w.right;
         //同时x的左子树变成w 的右子树

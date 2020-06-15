@@ -7,6 +7,7 @@ public class CallableAndFuture {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ExecutorService threadpool = Executors.newFixedThreadPool(1);
+
         Future<String> future = threadpool.submit(new Callable<String>() {
             public String call() throws InterruptedException {
                 Thread.sleep(2000);

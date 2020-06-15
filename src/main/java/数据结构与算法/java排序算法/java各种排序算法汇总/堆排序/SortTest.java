@@ -109,6 +109,12 @@ public class SortTest {
         arr[i] = temp;
     }
 
+
+
+
+
+
+
     //调整大顶堆
     public static void adjustHeap2(int[]arr,int i ,int length){
         int temp = arr[i]; // 取出当前元素 （非叶子结点）

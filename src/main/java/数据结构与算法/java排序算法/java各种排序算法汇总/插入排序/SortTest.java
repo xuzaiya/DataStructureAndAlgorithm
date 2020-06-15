@@ -144,6 +144,46 @@ public class SortTest {
         }
     }
 
+    //默认第一个是有序的
+    private static void insertSort9(int[]arr){
+        for (int i=0;i<arr.length;i++){
+            int j = i-1;
+            int temp = arr[i];
+            while(j>=0&&arr[j]>temp){
+                arr[j+1] =arr[j];
+                j--;
+            }
+            arr[j+1] = temp;
+        }
+    }
+
+    //默认第一个是有序的
+    private static void insertSort10(int[]arr){
+        for (int i=0;i<arr.length;i++){
+            int j=i-1;
+            int temp = arr[i];
+            while(j>=0&&arr[j]>temp){
+                arr[j+1] = arr[j];
+            }
+            arr[j+1] = temp;
+        }
+    }
+
+
+    //插入排序
+    private static void insetSort(int[]arr){
+        for(int i=0;i<arr.length;i++){
+            int j= i-1;
+            int value = arr[i];
+            while(j>=0&&arr[j]>value){
+                arr[j+1] = arr[j];
+            }
+            arr[j+1] = value;
+        }
+    }
+
+
+
 
 
 

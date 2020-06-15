@@ -154,14 +154,75 @@ public class shellSort {
         }
     }
 
+    //希尔排序
+    public static void shellSort10(int[]arr){
+        if (arr == null || arr.length<=1)return ;
+        int gap = arr.length/2;
+        while(gap!=0){
+            for (int i = gap ;i<arr.length;i++){
+                int j = i-gap;
+                int value = arr[i];
+                for (;j>=0&&arr[j]>value;j-=gap){
+                    arr[j+gap] = arr[j];
+                }
+                arr[j+gap] = value;
+            }
+            gap/=2;
+        }
+    }
 
 
+    public static void shellSort11(int[]arr){
+        if(arr == null || arr.length<=1)return ;
+        int gap = arr.length/2;
+        while(gap!=0){
+            for(int i =gap;i<arr.length;i++){
+                int j = i-gap;
+                int value = arr[i];
+                for(;j>=0&&arr[j]>value;j-=gap){
+                    arr[j+gap] = arr[j];
+                }
+                arr[j+gap]=value;
+            }
+            gap/=2;
+        }
+
+    }
 
 
+    public static  void shellSort12(int[]arr){
+        if(arr== null || arr.length<=1)return ;
+        int gap=arr.length/2;
+        while(gap!=0){
+            for (int i=gap;i<arr.length;i++){
+                int j =i-gap;
+                int value = arr[i];
+                for (;j>=0&&arr[j]>value;j-=gap){
+                    arr[j+gap] = arr[j];
+                }
+                arr[j+gap] = value;
+            }
+            gap/=2;
+        }
+    }
 
 
-
-
+   //希尔排序
+    public static void shellSort13(int[]arr){
+        if(arr == null || arr.length<=1)return;
+        int gap=arr.length/2;
+        while(gap!=0){
+            for (int i=gap;i<arr.length;i++){
+                int j = i-gap;
+                int value = arr[i];
+                for (;j>=0&&arr[j]>value;j-=gap){
+                    arr[j+gap] = arr[j];
+                }
+                arr[j+gap]  = value;
+            }
+            gap/=2;
+        }
+    }
 
 
 

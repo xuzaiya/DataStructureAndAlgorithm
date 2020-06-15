@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Demo5 {
     public static void main(String[] args) {
@@ -16,12 +18,18 @@ public class Demo5 {
         int tmallNum =(int)(tmallNums*totalNum);
         System.out.println(tmallNum);*/
 
-        String sql = "120684853235";
+       /* String sql = "120684853235";
         Long id = Long.parseLong(sql);
         System.out.println(id);
         int suitNum = 123;
         long s = (long)-suitNum;
-        System.out.println(s);
+        System.out.println(s);*/
+
+       String str = "   dfjkdjfk  dfkjdfk  dfjdk j \n  \t \r dfdfdkjek ";
+        Pattern p=Pattern.compile("\\S");
+        Matcher matcher = p.matcher(str);
+        System.out.println(matcher.group());
+
 
 
     }

@@ -194,6 +194,104 @@ public class SortTest {
         quickSort7(arr,i+1,right);
     }
 
+    public static void quickSort10(int[]arr,int left,int right){
+        int i ,j,temp,t;
+        if (left>right)return ;
+        i = left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i] =arr[j];arr[j] =t;
+            }
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort10(arr,left,i-1);
+        quickSort10(arr,i+1,right);
+
+    }
+
+    public static void quickSort11(int[]arr,int left,int right){
+        int i ,j,temp,t;
+        if (left>right)return ;
+        i =left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i]=arr[j];arr[j]=t;
+            }
+        }
+
+        arr[left] =arr[i];arr[i] =temp;
+        quickSort11(arr,left,i-1);
+        quickSort11(arr,i+1,right);
+
+    }
+    //快速排序
+    public static void quickSort12(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if (left>right)return ;
+        i=left;
+        j=right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i]=arr[j];arr[j]=t;
+            }
+        }
+        arr[left] = arr[i];arr[i]=temp;
+        quickSort12(arr,left,i-1);
+        quickSort12(arr,i+1,right);
+    }
+
+
+    //快速排序
+    public static void quickSort13(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if(left>right)return ;
+        i=left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if(i<j){
+                t=arr[i];arr[i] = arr[j];arr[j] = t;
+            }
+        }
+        arr[left] = arr[i];arr[i] = temp;
+        quickSort13(arr,left,i-1);
+        quickSort13(arr,i+1,right);
+    }
+
+    //快速排序
+    public static void quickSort14(int[]arr,int left,int right){
+        int i,j,temp,t;
+        if (left>right)return;
+        i=left;
+        j = right;
+        temp = arr[left];
+        while(i!=j){
+            while(arr[j]>=temp&&i<j){j--;}
+            while(arr[i]<=temp&&i<j){i++;}
+            if (i<j){
+                t=arr[i];arr[i] = arr[j];arr[j] = t;
+            }
+        }
+        arr[left] =arr[i];arr[i] = temp;
+        quickSort14(arr,left,i-1);
+        quickSort14(arr,i+1,right);
+
+
+    }
+
 
 
 

@@ -14,7 +14,7 @@ public class MultiThreadShareData {
         new Thread(myRunnable1).start();
         new Thread(myRunnable2).start();
 
-        new Thread(new Runnable() {
+      /*  new Thread(new Runnable() {
             @Override
             public void run() {
                 data.increment();
@@ -25,13 +25,13 @@ public class MultiThreadShareData {
             public void run() {
                 data.decrement();
             }
-        }).start();
+        }).start();*/
 
     }
 }
 
 class ShareData {
-    private int count = 100;
+    public  int count = 100;
 
     public void increment(){
         count++;
@@ -50,7 +50,11 @@ class MyRunnable1 implements Runnable{
     }
     @Override
     public void run() {
-        data.decrement();
+        while(data.count>0){
+            data.decrement();
+            System.out.println(data.count);
+        }
+
     }
 }
 
@@ -63,6 +67,8 @@ class MyRunnable2 implements Runnable{
     }
     @Override
     public void run() {
+        while(data.count<0)
         data.increment();
+        System.out.println(data.count);
     }
 }

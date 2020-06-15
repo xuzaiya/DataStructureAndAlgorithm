@@ -1,6 +1,7 @@
 package java基础知识总结与回顾.String字符串类骚操作;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Test {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Test {
         System.out.println(str2);//abc
         System.out.println(str3);//abc
         System.out.println(str4);//abc
+
 
 
         //2.获取字符串的内容信息
